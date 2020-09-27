@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  form(name="spf-lookup",method="get",action="spf-lookup")
+    .form-group
+       label(for="domain") Domain
+       input(type="text",name="domain",id="domain",class="form-control", value=domain)
+    .form-group
+      input(type="submit", value="SPF Lookup",class="btn btn-primary")
+  p= errorMessage
+  - if (typeof(data) !== 'undefined'){
+      for item in data
+        p= item
+  - }
